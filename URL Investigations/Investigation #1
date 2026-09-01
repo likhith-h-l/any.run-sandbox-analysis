@@ -1,0 +1,97 @@
+ANY.RUN Investigation Notes
+Target
+
+https://www.iana.org/domains/reserved
+
+Environment
+
+Windows 10 64-bit sandbox
+
+1. Website Behavior
+Website opened successfully.
+No suspicious redirect was observed.
+No unexpected popup or download was observed.
+The page loaded normally.
+2. Process Analysis
+Main browser process: msedge.exe
+Multiple Microsoft Edge processes were observed.
+No obvious unexpected or suspicious child process was identified.
+Browser activity appeared consistent with normal Microsoft Edge behavior.
+3. HTTP Request Analysis
+Target URL: https://www.iana.org/domains/reserved
+HTTP Method: GET
+Response: 200 OK
+The server successfully returned the requested webpage.
+Additional Edge/Microsoft background requests were observed.
+4. Connection Analysis
+
+Important connection related to the target:
+
+Process: msedge.exe
+Remote IP: 104.18.25.232
+Remote Port: 443
+Domain: www.iana.org
+Protocol: TCP
+ASN: CLOUDFLARENET
+Observation
+
+msedge.exe connected to www.iana.org using HTTPS on port 443.
+
+This connection was expected because the URL was intentionally opened using Microsoft Edge.
+
+Other connections included Microsoft and Windows services such as:
+
+edge.microsoft.com
+config.edge.skype.com
+settings-win.data.microsoft.com
+go.microsoft.com
+login.live.com
+
+These appeared consistent with normal browser and Windows background activity.
+
+5. DNS Analysis
+
+The target domain resolved successfully:
+
+www.iana.org
+↓
+104.18.25.232
+104.18.24.232
+
+Other DNS requests were mainly related to Microsoft, Edge, Google, and Windows services.
+
+No obviously suspicious domain was identified during the investigation.
+
+6. Network Threats
+Network Threats: 0
+
+No network threats were detected during the observed sandbox execution.
+
+7. Suspicious Activity
+
+No obvious suspicious activity was observed.
+
+No evidence was seen of:
+
+Unexpected process execution
+Suspicious file download
+Malicious redirect
+Suspicious domain communication
+Unusual network connection
+8. Final Verdict
+Target: https://www.iana.org/domains/reserved
+
+Main Process: msedge.exe
+
+Network Behavior:
+Normal HTTPS communication with www.iana.org
+and expected Microsoft/Windows background services.
+
+Suspicious Activity Observed: No
+
+Network Threats Detected: No
+
+Final Verdict: Benign / Legitimate
+Investigation Conclusion
+
+The URL https://www.iana.org/domains/reserved appeared legitimate and benign based on the behavior observed during the ANY.RUN sandbox analysis.
