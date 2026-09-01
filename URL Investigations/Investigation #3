@@ -1,0 +1,99 @@
+ANY.RUN Investigation #3 — URLhaus Website Analysis
+ Target
+https://urlhaus.abuse.ch/
+ Environment
+Windows 10 64-bit
+Browser: Microsoft Edge
+1. Website Behavior
+The URLhaus website opened successfully.
+The webpage loaded normally.
+No unexpected download was observed.
+No obvious suspicious redirect was observed.
+2. Process Analysis
+Main Process
+Process: msedge.exe
+
+Microsoft Edge was responsible for accessing the target website.
+
+Suspicious Child Processes
+No obvious suspicious child processes related to the target website were observed.
+3. Website Information
+Domain: abuse.ch
+Subdomain: urlhaus.abuse.ch
+
+SSL Certificate: Valid
+
+Registrar: Hostpoint AG
+
+URLhaus is a threat-intelligence platform that provides information about malicious URLs.
+
+4. HTTP Analysis
+HTTP Requests: 14
+
+Observed requests included:
+
+https://urlhaus.abuse.ch/
+
+https://urlhaus.abuse.ch/css/bootstrap.min.css
+
+https://urlhaus.abuse.ch/css/all.min.css
+
+https://urlhaus.abuse.ch/css/jumbotron.css
+
+https://urlhaus.abuse.ch/css/custom.css
+
+These requests appeared consistent with normal webpage loading and resource retrieval.
+
+5. Third-Party Domains Observed
+googletagmanager.com
+
+google-analytics.com
+
+region1.google-analytics.com
+
+These domains appeared to be related to website analytics and tag management.
+
+No suspicious activity was identified from these connections during the observed analysis.
+
+6. Indicators
+Total Indicators: 33
+
+The collected indicators included:
+
+Domains
+URLs
+Hashes
+IP addresses
+Important Observation
+
+Indicators collected during sandbox analysis do not automatically mean malicious activity.
+
+Indicators are artifacts observed during execution and must be analyzed in context.
+
+7. Network Threats
+Network Threats: 0
+
+ANY.RUN reported:
+
+No threats detected
+ Final Verdict
+Target:
+https://urlhaus.abuse.ch/
+
+Main Process:
+msedge.exe
+
+Suspicious Child Processes:
+No obvious suspicious child processes observed
+
+HTTP Activity:
+Normal webpage resource requests observed
+
+Network Threats:
+0
+
+Suspicious Activity:
+No obvious suspicious activity observed
+
+Final Verdict:
+BENIGN / LEGITIMATE
