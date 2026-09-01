@@ -1,0 +1,105 @@
+ANY.RUN Investigation #2 — URL Analysis
+ Target
+https://www.example.org/
+ Environment
+Windows 10 64-bit
+Browser: Microsoft Edge
+1. Website Behavior
+The website opened successfully.
+No suspicious redirect was observed.
+No unexpected download was observed.
+The page displayed the normal Example Domain website.
+2. Process Analysis
+Main Process
+Process: msedge.exe
+PID: 7020
+
+Microsoft Edge was responsible for accessing the target website.
+
+Additional Process Observed
+Process: slui.exe
+Path: C:\Windows\System32\slui.exe
+
+slui.exe was observed communicating with:
+
+activation-v2.sls.microsoft.com
+Port: 443
+
+This activity occurred BEFORE the main browser activity and appeared related to normal Windows/Microsoft activation services.
+
+slui.exe should not automatically be considered a suspicious child process of msedge.exe without confirming the parent-child relationship.
+
+3. HTTP Analysis
+
+Observed HTTP activity included:
+
+Method: GET
+Response: 200 OK
+
+The successful 200 OK response indicates that the requested resource was successfully returned.
+
+A 502 Bad Gateway response was also observed for a separate request, but this should be investigated in context and does not automatically mean the target website is malicious.
+
+4. Network Connection Analysis
+Main Target Connection
+Process: msedge.exe
+PID: 7020
+
+Remote IP: 104.20.26.136
+Port: 443
+Protocol: TCP
+Domain: www.example.org
+ASN: CLOUDFLARENET
+Analysis
+
+The browser process msedge.exe connected to www.example.org over TCP port 443.
+
+This behavior was expected because the target URL was intentionally opened in Microsoft Edge.
+
+5. DNS Analysis
+
+The target domain was successfully resolved:
+
+www.example.org
+↓
+104.20.26.136
+
+Other domains observed included Microsoft and Windows-related services such as:
+
+edge.microsoft.com
+activation-v2.sls.microsoft.com
+settings-win.data.microsoft.com
+
+These connections appeared consistent with normal browser and Windows background activity.
+
+6. Network Threats
+Network Threats: 0
+
+No network threats were detected during the observed sandbox execution.
+
+7. Investigation Findings
+Website opened successfully: YES
+
+Suspicious redirect: NO
+
+Unexpected download: NO
+
+Main process: msedge.exe
+
+Target connection:
+msedge.exe → www.example.org → TCP 443
+
+Suspicious child process:
+No obvious suspicious child process related to the target was identified.
+
+Network threats detected: NO
+Final Verdict
+Target: https://www.example.org/
+
+Classification: Benign / Legitimate
+
+Reason:
+The website opened normally, the main browser process
+communicated with the expected target domain over HTTPS,
+and no obvious suspicious behavior or network threats
+were observed during the sandbox analysis.
