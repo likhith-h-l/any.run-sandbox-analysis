@@ -1,0 +1,28 @@
+ANY.RUN Investigation #7 — bin.sh
+
+Target URL:
+http://42.226.76.23:50496/bin.sh
+
+Environment:
+Windows 10 64-bit + Microsoft Edge
+
+ Observations
+Website could not connect — connection was refused.
+Main process: msedge.exe
+Processes: 50
+Browser Data: 1
+Actions: 0
+Network Threats: 0
+No malicious payload was downloaded or executed during the analysis.
+ANY.RUN showed “No threats detected.”
+ Verdict
+
+INCONCLUSIVE / SUSPICIOUS
+
+The target did not respond during the sandbox analysis, so malicious behavior could not be confirmed from this run.
+
+ Key Learning
+
+“No threats detected” does not always mean the URL is safe.
+
+A malicious URL may be offline, unavailable, or may not deliver its payload during the particular sandbox run.
