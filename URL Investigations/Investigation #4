@@ -1,0 +1,39 @@
+ANY.RUN Investigation #4 — Malicious URL Analysis
+Target
+http://147.182.224.216/zed
+Environment
+Windows 10 64-bit
+Microsoft Edge
+ANY.RUN Sandbox
+1. Website Behavior
+
+The URL did not load.
+
+Edge showed:
+
+ERR_CONNECTION_TIMED_OUT
+
+This means the server did not respond.
+
+2. Process Analysis
+
+Main process:
+
+msedge.exe
+
+Only normal Edge processes were observed.
+
+No suspicious processes like powershell.exe, cmd.exe, or wscript.exe were seen.
+
+3. Network Analysis
+Network Threats: 0
+Actions: 0
+No successful connection to the target URL was observed.
+Most network traffic was related to Microsoft/Windows services.
+4. Final Verdict
+
+INCONCLUSIVE
+
+The URL was reported as malicious, but during our sandbox test, the server did not respond and no malicious activity was observed.
+
+Important: "No threats detected" does not always mean the URL is safe. The server may be offline or may not respond to the sandbox.
