@@ -1,0 +1,43 @@
+ANY.RUN Investigation #6 — Malicious URL Analysis
+Target
+https://77.83.39.20/bin/support.client.exe
+Environment
+Windows 10 64-bit
+Microsoft Edge
+ANY.RUN Sandbox
+Analysis time: 307 seconds
+1. File Download
+
+The URL successfully delivered an executable file:
+
+support.client.exe
+
+A Windows security warning appeared and showed the file as being from an Unknown Publisher.
+
+2. Network Analysis
+Network Threats: 3
+Actions: 1
+ANY.RUN tagged the activity as Loader.
+3. Process Analysis
+
+The main process was:
+
+msedge.exe
+
+Multiple normal Edge processes were observed.
+
+An additional process was also observed:
+
+rundll32.exe
+
+rundll32.exe is a legitimate Windows utility, but attackers can sometimes abuse it to execute malicious DLL code. Therefore, its presence should be investigated in context.
+
+4. Final Verdict
+
+MALICIOUS / HIGHLY SUSPICIOUS
+
+The URL delivered an executable file, the file had an unknown publisher, ANY.RUN reported network threats, and rundll32.exe activity was observed.
+
+🧠 Key Learning
+
+Don't judge a process only by its name. Check its parent process, command line, file location, and behavior.
