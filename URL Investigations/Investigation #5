@@ -1,0 +1,47 @@
+ANY.RUN Investigation #5 — Malicious URL Analysis
+Target
+http://115.57.254.136:42278/i
+Environment
+Windows 10 64-bit
+Microsoft Edge
+ANY.RUN Sandbox
+Analysis time: 72 seconds
+1. Website Behavior
+
+The URL responded successfully and automatically downloaded a file.
+
+Downloaded file:
+
+i.zip
+2. HTTP Analysis
+
+The target returned:
+
+GET 200: OK
+
+The response was approximately 133 KB and ANY.RUN identified the content as executable.
+
+3. Process Analysis
+
+The main process was:
+
+msedge.exe
+
+Normal Microsoft Edge processes were observed.
+
+No suspicious child process was observed in the available results.
+
+4. ANY.RUN Detection
+Network Threats: 1
+Actions: 1
+Tracker: Loader
+ANY.RUN: No threats detected banner was shown, but the analysis contained a network-threat indicator.
+5. Final Verdict
+
+MALICIOUS / SUSPICIOUS
+
+The URL successfully delivered a file automatically. The response was identified as executable content, and ANY.RUN recorded a network threat.
+
+🧠 Key Learning
+
+A URL that automatically delivers an executable payload is highly suspicious and requires further file/hash analysis.
