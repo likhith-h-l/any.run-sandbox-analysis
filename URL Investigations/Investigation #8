@@ -1,1 +1,114 @@
+ANY.RUN Investigation #8 — Inconclusive URL Analysis
+1. Target
+URL: http://179.108.90.55:44298/i
+Environment: Windows 10 64-bit
+Browser: Microsoft Edge
+2. Initial Observation
 
+The URL did not successfully load in the sandbox.
+
+Browser displayed:
+
+Hmmm... can't reach this page
+The connection was reset.
+
+The target server did not provide a response.
+
+3. HTTP Analysis
+
+Target request:
+
+Method: GET
+Host: 179.108.90.55:44298
+Path: /i
+Protocol: HTTP/1.1
+Response: No response
+
+The target request was made by:
+
+msedge.exe
+
+No data was transferred from the target.
+
+Target response: No response
+Transfer data: 0 B
+
+Other 200 OK requests observed during the analysis were primarily related to Microsoft Edge services and infrastructure.
+
+4. Process Analysis
+
+The process tree did not show an obvious malicious process or suspicious child process associated with the target.
+
+Observed:
+
+identity_helper.exe
+
+It performed system-information discovery, including:
+
+Reading the computer name
+Checking supported languages
+5. MITRE ATT&CK
+
+Observed technique:
+
+T1012 — Query Registry
+
+This activity was associated with:
+
+identity_helper.exe
+
+The technique indicates registry/system information being queried.
+
+Important: This behavior alone does not prove that the target is malicious.
+
+6. File / Payload Analysis
+
+No malicious payload was successfully delivered by the target during the analysis.
+
+Download: None observed
+Execution of target payload: None observed
+7. Network Analysis
+
+The target connection:
+
+179.108.90.55:44298
+
+was attempted but returned:
+
+No response
+
+Other network requests were mainly normal Microsoft Edge-related traffic.
+
+8. ANY.RUN Result
+
+ANY.RUN displayed:
+
+No threats detected
+
+However, this should not automatically be interpreted as proof that the URL is benign.
+
+9. Final Verdict
+INCONCLUSIVE
+Reason:
+
+The target URL was contacted, but the server returned no response and transferred 0 bytes. No payload download, malicious execution, or clear malicious network behavior was observed.
+
+Therefore, there was insufficient runtime evidence to classify the URL as either benign or malicious.
+
+10. Key SOC Learning
+
+No response does not mean benign.
+
+A failed connection can happen because a server is offline, unavailable, misconfigured, or behaving differently toward the sandbox.
+
+Therefore:
+
+No response
+      ↓
+No payload observed
+      ↓
+No malicious behavior observed
+      ↓
+Insufficient evidence
+      ↓
+INCONCLUSIVE
