@@ -1,0 +1,107 @@
+# ANY.RUN Investigation #9 — Inconclusive URL Analysis
+
+##  Target
+
+**URL:** `http://115.61.115.133:57897/bin.sh`
+
+**Environment:**
+- Windows 10 64-bit
+- Microsoft Edge
+- ANY.RUN Sandbox
+
+---
+
+##  Initial Observation
+
+The target URL was opened in the ANY.RUN sandbox.
+
+The browser displayed:
+
+> "Hmmm... can't reach this page"
+
+The target server did not provide a response during the analysis.
+
+---
+
+##  HTTP Analysis
+
+- Target URL was contacted.
+- Server returned no response.
+- No successful HTTP response from the target was observed.
+- No payload or file was transferred from the target.
+- Other HTTP requests were mainly related to Microsoft Edge/background services.
+
+---
+
+##  Payload Analysis
+
+- No payload was successfully downloaded.
+- No suspicious file was delivered by the target.
+- No executable payload was observed.
+- No file execution originating from the target was observed.
+
+---
+
+##  Process Analysis
+
+The process activity was primarily related to Microsoft Edge and its normal supporting processes.
+
+No clearly malicious process execution associated with the target was observed.
+
+---
+
+##  Network Analysis
+
+- **Network Threats:** 0
+- Target server did not provide a response.
+- No confirmed malicious network communication was observed.
+
+---
+
+##  ANY.RUN Result
+
+ANY.RUN displayed:
+
+**"No threats detected"**
+
+However, this does **not automatically mean the URL is benign**.
+
+The target server did not respond, so the sandbox did not receive enough data to properly evaluate its behavior.
+
+---
+
+##  Investigation Reasoning
+
+The target URL was contacted, but the server returned no response.
+
+Because the target did not deliver a payload or demonstrate malicious behavior during the sandbox execution, there is insufficient behavioral evidence to classify it as either benign or malicious.
+
+---
+
+##  Final Verdict
+
+**INCONCLUSIVE**
+
+### Reason:
+
+> The target server did not respond during analysis. No payload was delivered and no malicious behavior was observed, therefore there is insufficient evidence to classify the target as benign or malicious.
+
+---
+
+## Key SOC Learning
+
+**"No threats detected" ≠ "Benign"**
+
+A sandbox can fail to observe malicious behavior because:
+- The server is offline.
+- The server does not respond to the sandbox.
+- The payload is unavailable.
+- The malicious behavior requires specific conditions.
+
+Therefore, analysts should distinguish between:
+
+**Benign** → Evidence shows the activity is legitimate.
+
+**Malicious** → Evidence shows malicious behavior.
+
+**Inconclusive** → There is not enough evidence to make either determination.
