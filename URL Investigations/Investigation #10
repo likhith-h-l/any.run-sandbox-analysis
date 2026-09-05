@@ -1,0 +1,109 @@
+# ANY.RUN Investigation #10 — Malicious URL Analysis
+
+##  Target
+
+**URL:** `http://125.43.26.183:35880/i`
+
+**Environment:**
+- Windows 10 64-bit
+- Microsoft Edge
+- ANY.RUN Sandbox
+
+---
+
+##  Initial Observation
+
+The target URL was opened inside the ANY.RUN sandbox.
+
+The URL successfully responded and automatically delivered a file to the system.
+
+---
+
+##  Payload Analysis
+
+- A file named **`i.zip`** was automatically downloaded.
+- URLhaus identified the delivered payload as an **ELF executable**.
+- Payload SHA256 observed in URLhaus:
+
+`4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7`
+
+- The downloaded file was located in:
+
+`C:\Users\admin\Downloads\i.zip`
+
+---
+
+##  Execution Analysis
+
+ANY.RUN recorded an action:
+
+> Launching a file from the Downloads directory
+
+This indicates that the downloaded file was launched inside the sandbox.
+
+---
+
+##  Network Analysis
+
+- **HTTP Requests:** 512
+- **Connections:** 98
+- **DNS Requests:** 121
+- **Network Threats:** **4**
+
+The presence of multiple network threat indicators increases confidence that the activity is malicious.
+
+---
+
+##  Process Analysis
+
+The activity involved Microsoft Edge (`msedge.exe`) during the initial download and browser interaction.
+
+The important behavioral observation was the delivery and launching of the downloaded payload.
+
+---
+
+##  ANY.RUN Result
+
+ANY.RUN's top banner displayed:
+
+**"No threats detected"**
+
+However, this should not be interpreted as proof that the URL is benign.
+
+Behavioral evidence from the analysis showed:
+- Automatic payload delivery
+- Executable payload
+- File launched from Downloads
+- 4 network threats
+
+---
+
+##  Investigation Reasoning
+
+The target URL successfully delivered a file that was identified as an ELF executable.
+
+The downloaded file was subsequently launched from the Downloads directory, and ANY.RUN recorded four network threats.
+
+The combination of **payload delivery + executable content + execution + network threat indicators** provides strong evidence of malicious activity.
+
+---
+
+##  Final Verdict
+
+**MALICIOUS**
+
+### Reason:
+
+> The target URL automatically delivered an executable payload (`i.zip` containing an ELF file), which was launched from the Downloads directory. ANY.RUN also recorded 4 network threats. These observations provide strong behavioral evidence of malicious activity.
+
+---
+
+##  Key SOC Learning
+
+**Don't rely only on the sandbox's overall banner.**
+
+A SOC analyst should correlate multiple indicators:
+
+**URL → Payload → File Type → Execution → Network Activity → Verdict**
+
+Automatic delivery of an executable payload followed by execution is a strong indicator that requires further investigation and response.
