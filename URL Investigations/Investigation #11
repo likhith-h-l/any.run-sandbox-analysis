@@ -1,0 +1,233 @@
+# ANY.RUN Investigation #10 — URL Analysis
+
+## 1. Target Information
+
+| Field                  | Details                            |
+| ---------------------- | ---------------------------------- |
+| **Target URL**         | `http://42.59.71.140:35247/bin.sh` |
+| **Analysis Platform**  | ANY.RUN                            |
+| **Environment**        | Windows 10 64-bit                  |
+| **Browser**            | Microsoft Edge                     |
+| **Investigation Type** | URL / Behavioral Analysis          |
+| **Final Verdict**      | **INCONCLUSIVE**                   |
+
+---
+
+## 2. Objective
+
+The objective of this investigation was to analyze the behavior of the provided URL inside an isolated ANY.RUN sandbox and determine whether it demonstrated malicious activity.
+
+The investigation focused on:
+
+* HTTP communication
+* Payload delivery
+* File creation/downloads
+* Process execution
+* Network activity
+* Threat detections
+* Overall behavioral indicators
+
+---
+
+## 3. Initial Observation
+
+The target URL was opened inside the ANY.RUN sandbox.
+
+The browser displayed:
+
+> **"Hmmm... can't reach this page"**
+
+This indicated that the target server did not provide a usable response during the analysis.
+
+The URL was contacted, but the expected content or payload was not retrieved.
+
+---
+
+## 4. HTTP Analysis
+
+### Observations
+
+* The target URL was contacted by the sandbox.
+* No successful HTTP response from the target was observed.
+* The target did not return usable content.
+* No payload was transferred from the target.
+* Other HTTP traffic observed during execution was primarily associated with Microsoft Edge and its background services.
+
+### Assessment
+
+There was insufficient HTTP-level evidence to determine the actual behavior of the target resource.
+
+---
+
+## 5. Payload / File Analysis
+
+During the sandbox execution:
+
+* No payload was successfully downloaded.
+* No suspicious file was delivered by the target.
+* No executable payload associated with the target was observed.
+* No file execution originating from the target was identified.
+
+### Assessment
+
+Since the target did not deliver a payload, static or behavioral analysis of a downloaded malicious file could not be performed.
+
+---
+
+## 6. Process Analysis
+
+The observed process activity was primarily associated with:
+
+* Microsoft Edge
+* Normal Edge supporting processes
+* Standard browser-related activity
+
+No clearly malicious process execution associated with the target URL was observed.
+
+### Assessment
+
+There was no sufficient process-level evidence linking the target to malicious execution.
+
+---
+
+## 7. Network Analysis
+
+| Indicator                         | Result             |
+| --------------------------------- | ------------------ |
+| **Network Threats**               | `0`                |
+| Target Response                   | No usable response |
+| Confirmed Malicious Communication | None observed      |
+| Payload Transfer                  | None observed      |
+
+No confirmed malicious network communication originating from the target was identified during the analysis.
+
+---
+
+## 8. ANY.RUN Detection
+
+ANY.RUN displayed:
+
+> **No threats detected**
+
+However, this result should **not automatically be interpreted as proof that the URL is benign**.
+
+The sandbox did not receive enough data from the target to properly evaluate its behavior.
+
+---
+
+## 9. Investigation Reasoning
+
+The target URL was successfully attempted from the isolated sandbox, but the remote server did not provide a usable response.
+
+As a result:
+
+* No payload was retrieved.
+* No suspicious file was executed.
+* No malicious process behavior was observed.
+* No confirmed malicious network communication was identified.
+
+However, the absence of malicious behavior does not establish that the URL is legitimate.
+
+The investigation therefore lacks sufficient behavioral evidence to classify the target as either **Benign** or **Malicious**.
+
+---
+
+# 10. Final Verdict
+
+## ⚠️ INCONCLUSIVE
+
+### Reason
+
+> The target server did not provide a usable response during analysis. No payload was delivered and no malicious behavior was observed. Therefore, there is insufficient behavioral evidence to classify the URL as either benign or malicious.
+
+---
+
+## 11. Why "No Threats Detected" ≠ "Benign"
+
+A sandbox may report **"No threats detected"** even when the analyst cannot establish that a resource is safe.
+
+Possible reasons include:
+
+* The server is offline.
+* The server does not respond to the sandbox.
+* The payload is temporarily unavailable.
+* The resource requires specific conditions to activate.
+* The malicious infrastructure is inactive.
+* The attack requires user interaction or environmental conditions.
+* The sandbox execution did not trigger the malicious behavior.
+
+Therefore, analysts should distinguish between:
+
+### 🟢 Benign
+
+There is sufficient evidence indicating legitimate behavior.
+
+### 🔴 Malicious
+
+There is sufficient evidence indicating malicious behavior.
+
+### 🟡 Inconclusive
+
+There is insufficient evidence to make a reliable determination.
+
+---
+
+## 12. SOC Analyst Takeaway
+
+This investigation demonstrates an important principle in security analysis:
+
+> **A lack of observed malicious behavior is not necessarily evidence of benign behavior.**
+
+An analyst must consider whether the sandbox actually received enough information to make a reliable determination.
+
+In this case, the target's failure to respond prevented meaningful behavioral analysis.
+
+Therefore, **INCONCLUSIVE** is the appropriate professional verdict rather than incorrectly labeling the URL as benign.
+
+---
+
+## 13. Investigation Summary
+
+| Category                | Finding              |
+| ----------------------- | -------------------- |
+| URL Response            | ❌ No usable response |
+| HTTP Payload            | ❌ None observed      |
+| File Download           | ❌ None observed      |
+| Suspicious Execution    | ❌ None observed      |
+| Network Threats         | `0`                  |
+| Malicious Communication | ❌ Not confirmed      |
+| ANY.RUN Detection       | No threats detected  |
+| Behavioral Evidence     | ⚠️ Insufficient      |
+| **Final Verdict**       | **🟡 INCONCLUSIVE**  |
+
+---
+
+## 14. Skills Demonstrated
+
+This investigation demonstrates practical experience with:
+
+* ANY.RUN sandbox analysis
+* URL behavioral investigation
+* HTTP traffic analysis
+* Payload identification
+* File activity analysis
+* Process analysis
+* Network threat analysis
+* Security verdict classification
+* Evidence-based SOC investigation
+* Avoiding false-positive/false-negative conclusions
+* Understanding sandbox limitations
+
+---
+
+## 15. Conclusion
+
+The URL `http://42.59.71.140:35247/bin.sh` was investigated using ANY.RUN in an isolated Windows 10 environment.
+
+The server did not provide a usable response, and no payload, suspicious file, malicious process execution, or confirmed malicious network activity was observed.
+
+Although ANY.RUN reported **"No threats detected,"** the lack of a server response meant that the target could not be adequately evaluated.
+
+**Final Verdict: INCONCLUSIVE**
+
+The URL should not be considered definitively benign based solely on this sandbox execution. Further analysis would be required if the resource becomes available or responds under different conditions.
