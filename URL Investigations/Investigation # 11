@@ -134,7 +134,7 @@ The investigation therefore lacks sufficient behavioral evidence to classify the
 
 # 10. Final Verdict
 
-## ⚠️ INCONCLUSIVE
+##  INCONCLUSIVE
 
 ### Reason
 
@@ -158,15 +158,15 @@ Possible reasons include:
 
 Therefore, analysts should distinguish between:
 
-### 🟢 Benign
+###  Benign
 
 There is sufficient evidence indicating legitimate behavior.
 
-### 🔴 Malicious
+###  Malicious
 
 There is sufficient evidence indicating malicious behavior.
 
-### 🟡 Inconclusive
+###  Inconclusive
 
 There is insufficient evidence to make a reliable determination.
 
@@ -190,15 +190,15 @@ Therefore, **INCONCLUSIVE** is the appropriate professional verdict rather than 
 
 | Category                | Finding              |
 | ----------------------- | -------------------- |
-| URL Response            | ❌ No usable response |
-| HTTP Payload            | ❌ None observed      |
-| File Download           | ❌ None observed      |
-| Suspicious Execution    | ❌ None observed      |
+| URL Response            |  No usable response |
+| HTTP Payload            |  None observed      |
+| File Download           |  None observed      |
+| Suspicious Execution    |  None observed      |
 | Network Threats         | `0`                  |
-| Malicious Communication | ❌ Not confirmed      |
+| Malicious Communication |  Not confirmed      |
 | ANY.RUN Detection       | No threats detected  |
-| Behavioral Evidence     | ⚠️ Insufficient      |
-| **Final Verdict**       | **🟡 INCONCLUSIVE**  |
+| Behavioral Evidence     |  Insufficient      |
+| **Final Verdict**       | ** INCONCLUSIVE**  |
 
 ---
 
